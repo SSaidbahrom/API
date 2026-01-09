@@ -1,7 +1,9 @@
-from django.urls import path
-from .views import CarListApiView, CarDetailApiView
+from .views import ParentCategoryListApiView , ChildrenCategoryByCategorySlug
+from django.urls import path, include
+
 
 urlpatterns = [
-    path('cars/', CarListApiView.as_view(), name='car-list-create'),
-    path('cars/<int:pk>/', CarDetailApiView.as_view(), name='car-detail'),
+    path('',ParentCategoryListApiView.as_view()),
+    path('category/<slug:slug>/', ChildrenCategoryByCategorySlug.as_view()),
+
 ]
